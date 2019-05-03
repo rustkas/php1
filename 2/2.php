@@ -3,46 +3,57 @@
 <head>
     <meta charset="utf-8">
     <title>Урок №2</title>
+    <style type="text/css">
+        table {
+        border-collapse: collapse;
+        }
+
+        th, td{
+        text-align: center;
+        border: 1px solid red;
+        padding: 1em;
+        }
+</style>
 </head>
 <body>
 
-<h1>Напишите программу, которая составит и выведет в браузер таблицу истинности для логических операторов &&, || и xor.</h1>
+<h1>Напишите программу, которая составит и выведет в браузер таблицу истинности для логических операторов &amp;&amp;, || и xor.</h1>
 
-<table border="1" style="border-collapse: collapse;">
+<table>
     <tr>
-        <td>a<td>
-        <td>b<td>
-        <td>&&<td>
-        <td>||<td>
-        <td>xor<td>
+        <th>a</th>
+        <th>b</th>
+        <th>&amp;&amp;</th>
+        <th>||</th>
+        <th>xor</th>
     </tr>
     <tr>
-        <td><?php $a = false; echo (int)$a; ?><td>
-        <td><?php $b = false; echo (int)$b; ?><td>
-        <td><?php echo (int)($a && $b); ?><td>
-        <td><?php echo (int)($a || $b); ?><td>
-        <td><?php echo (int)($a xor $b); ?><td>
+        <td><?php $a = false; echo (int)$a; ?></td>
+        <td><?php $b = false; echo (int)$b; ?></td>
+        <td><?php echo (int)($a && $b); ?></td>
+        <td><?php echo (int)($a || $b); ?></td>
+        <td><?php echo (int)($a xor $b); ?></td>
     </tr>
     <tr>
-        <td><?php $a = true; echo (int)$a; ?><td>
-        <td><?php $b = false; echo (int)$b; ?><td>
-        <td><?php echo (int)($a && $b); ?><td>
-        <td><?php echo (int)($a || $b); ?><td>
-        <td><?php echo (int)($a xor $b); ?><td>
+        <td><?php $a = true; echo (int)$a; ?></td>
+        <td><?php $b = false; echo (int)$b; ?></td>
+        <td><?php echo (int)($a && $b); ?></td>
+        <td><?php echo (int)($a || $b); ?></td>
+        <td><?php echo (int)($a xor $b); ?></td>
     </tr>
     <tr>
-        <td><?php $a = false; echo (int)$a; ?><td>
-        <td><?php $b = true; echo (int)$b; ?><td>
-        <td><?php echo (int)($a && $b); ?><td>
-        <td><?php echo (int)($a || $b); ?><td>
-        <td><?php echo (int)($a xor $b); ?><td>
+        <td><?php $a = false; echo (int)$a; ?></td>
+        <td><?php $b = true; echo (int)$b; ?></td>
+        <td><?php echo (int)($a && $b); ?></td>
+        <td><?php echo (int)($a || $b); ?></td>
+        <td><?php echo (int)($a xor $b); ?></td>
     </tr>
     <tr>
-        <td><?php $a = true; echo (int)$a; ?><td>
-        <td><?php $b = true; echo (int)$b; ?><td>
-        <td><?php echo (int)($a && $b); ?><td>
-        <td><?php echo (int)($a || $b); ?><td>
-        <td><?php echo (int)($a xor $b); ?><td>
+        <td><?php $a = true; echo (int)$a; ?></td>
+        <td><?php $b = true; echo (int)$b; ?></td>
+        <td><?php echo (int)($a && $b); ?></td>
+        <td><?php echo (int)($a || $b); ?></td>
+        <td><?php echo (int)($a xor $b); ?></td>
     </tr>
 </table>
 
