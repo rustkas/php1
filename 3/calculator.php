@@ -54,7 +54,6 @@ function calculator($operation, $number1, $number2) {
         default:
             // Недопустимая операция
             return 'errOp';
-            break;
     }
 }
 
@@ -107,9 +106,6 @@ else {
     }
     ?>
 </form>
-
-
-
 
 </body>
 </html>
