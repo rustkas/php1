@@ -58,7 +58,7 @@ else {
     <?php
 }
 ?>
-<form method="get" action="calculator.php">
+<form method="get">
     <input type="text" name="number1" value="<?php
     if (isset($_GET['number1'])) {
         echo $_GET['number1'];
