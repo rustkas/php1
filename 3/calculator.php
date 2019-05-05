@@ -15,24 +15,6 @@
 <?php
 $operationsArray = ['plus' => '+', 'minus' => '-', 'multiplication' => '*', 'division' => '/'];
 
-if (isset($_GET['number1'])) {
-    $number1 = $_GET['number1'];
-    if ('' === $number1) {
-        $number1 = 0;
-    }
-}
-if (isset($_GET['number2'])) {
-    $number2 = $_GET['number2'];
-    if ('' === $number2) {
-        $number2 = 0;
-    }
-}
-
-if (isset($_GET['operation'])) {
-    $operation = $_GET['operation'];
-}
-
-
 function calculator($operation, $number1, $number2) {
     switch ($operation) {
         case 'plus':
@@ -45,7 +27,7 @@ function calculator($operation, $number1, $number2) {
             return $number1 * $number2;
             break;
         case 'division':
-            if ($number2 === 0) {
+            if ($number2 == 0) {
                 return 'err0';
             } else {
                 return $number1 / $number2;
@@ -62,9 +44,10 @@ assert(-5 === calculator('minus', 5, 10));
 assert(50 === calculator('multiplication', 5, 10));
 assert(3 === calculator('division', 15, 5));
 assert('err0' === calculator('division', 15, 0));
+assert('err0' === calculator('division', 15, '0'));
 assert('errOp' === calculator('division2', 15, 5));
 
-if(empty($_GET) === true) {
+if(false === isset($_GET['operation'])) {
     ?>
     <h3>Введите данные в калькулятор</h3>
     <?php
@@ -75,24 +58,36 @@ else {
     <?php
 }
 ?>
-
-<form method="get" action="/3/calculator.php">
+<form method="get" action="calculator.php">
     <input type="text" name="number1" value="<?php
     if (isset($_GET['number1'])) {
         echo $_GET['number1'];
     } ?>">
     <select name="operation">
-
+    <?php
+        if (false === isset($_GET['operation'])) {
+    ?>
+        <option value="">
+        <?php foreach ($operationsArray as $op => $opSymbol) {
+        
+        ?>
+        <option value="<?php echo $op ?>">
+        <?php echo $opSymbol;
+        }
+        ?>     
+        </option>
+        <?php 
+        } else {
+            foreach ($operationsArray as $op => $opSymbol) { ?>
+        <option value="<?php echo $op ?>" 
         <?php
-
-        foreach ($operationsArray as $op => $opSymbol) { ?>
-        <option value="<?php echo $op ?>" <?php
-            if (isset($_GET['operation']) && $_GET['operation'] == $op) {
+            if ($op === $_GET['operation']) {
                 echo 'selected';
             }?>
-            ><?php echo $opSymbol ?></option>
-        <?php } ?>
-
+            ><?php echo $opSymbol; ?></option>
+        <?php 
+            }
+        } ?>
     </select>
     <input type="text" name="number2" value="<?php
     if (isset($_GET['number2'])) {
@@ -100,9 +95,10 @@ else {
     }
     ?>">
     <button type="submit">=</button>
+    
     <?php
     if (isset($number1) && isset($number2) && isset($operation)) {
-        echo calculator($operation, $number1, $number2);
+        echo '<b>' . calculator($operation, $number1, $number2) .'<br/>';
     }
     ?>
 </form>
